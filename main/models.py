@@ -15,8 +15,21 @@ class DevName(models.Model):
 
 class Video(models.Model):
     devname =models.ForeignKey(DevName, on_delete=CASCADE)    
-    video= models.FileField(upload_to='videos/')   
+    video= models.FileField(upload_to='videos/') 
+
+class External(models.Model):
+    devname=models.ForeignKey(DevName, on_delete=CASCADE) 
+    book= models.URLField(blank=True) 
+    yt= models.URLField(blank=True) 
+    doc= models.URLField(blank=True) 
+
     
+
+    
+
+
+
+   
 
 """ class review(models.Model):
     links =models.ForeignKey(links, on_delete=CASCADE)    

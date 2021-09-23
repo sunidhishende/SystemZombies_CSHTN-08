@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ External Links
+{% endblock %} 
+
+{% block content %}
+
+   <h1> External Resources </h1>
+   <h2> {{devname}} </h2>
+
+   <h3> Books </h3>
+   <ul>
+   {%for x in devname.external_set.all%}
+      <li> <a href="{{x.book}}"> {{x.book}} </a> </li>
+   {%endfor%}   
+   </ul>
+
+   <h3> Yt Links </h3>
+   <ul>
+   {%for x in devname.external_set.all%}
+      <li> <a href="{{x.yt}}"> {{x.yt}} </a> </li>
+   {%endfor%}   
+   </ul>
+
+   <h3> Documentation </h3>
+
+   <ul>
+   {%for x in devname.external_set.all%}
+      <li> <a href="{{x.doc}}"> {{x.doc}} </a> </li>
+   {%endfor%}   
+   </ul>
+
+
+{% endblock %}

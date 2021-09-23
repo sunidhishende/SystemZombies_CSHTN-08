@@ -12,10 +12,6 @@
    {%for x in devname.video_set.all%}
        <video controls autoplay width='50%' height='40%' plays-inline> <source src="{{x.video.url}}" type="video/mp4" > Your browser does not support video </video>
    {%endfor%}   
-   {% comment %} {%for x in video%}
-      {{x}}
-       <video controls autoplay width='50%' height='40%' plays-inline> <source src="{{x}}" > Your browser does not support video </video>
-   {%endfor%}    {% endcomment %}
    </ul>
 {% endblock %} 
  
