@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Video content
+{% endblock %} 
+
+{% block content %}
+
+   <h1> The videos </h1>
+   <h2> {{devname}} </h2>
+   <ul>
+   {%for x in devname.video_set.all%}
+       <video controls autoplay width='50%' height='40%' plays-inline> <source src="{{x.video.url}}" type="video/mp4" > Your browser does not support video </video>
+   {%endfor%}   
+   {% comment %} {%for x in video%}
+      {{x}}
+       <video controls autoplay width='50%' height='40%' plays-inline> <source src="{{x}}" > Your browser does not support video </video>
+   {%endfor%}    {% endcomment %}
+   </ul>
+{% endblock %} 
+ 
+
+
