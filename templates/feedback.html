@@ -1,14 +1,8 @@
+{% extends 'base.html' %}
 <html>
 <head>
 <title>REVIEW FORM
 </title>
-<style>
-{% comment %} body{background-image:url(image1.jpg);
-     background-size:cover;
-     background-attachment:fixed;
-     } {% endcomment %}
-</style>
-
 
 <center>
 <h1>REVIEW FORM</h1><br><br>
@@ -16,18 +10,6 @@
 <form method="POST">
 {%csrf_token%}
 <table>
-
-{% comment %} <tr>
-<th>RATING </th>
-<td>1<input type=radio name="answer1" value="A">
-2<input type=radio name="answer1" value="B">
-3<input type=radio name="answer1" value="C">
-4<input type=radio name="answer1" value="D">
-5<input type=radio name="answer1" value="E">
-</td>
-</tr> {% endcomment %}
-
-
 <label for="devnames">Choose course:</label>
 <select name="devnames" id="devnames">
 {%for x in devname.all%}
