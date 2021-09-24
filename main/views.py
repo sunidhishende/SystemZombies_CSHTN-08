@@ -4,7 +4,8 @@ from.models import DevName, User, Review
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request,'home.html',{})
+    devname= DevName.objects
+    return render(request,'home.html',{"devname":devname})
 
 
 @login_required(login_url='/login')

@@ -8,6 +8,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class DevName(models.Model):
 
     name=models.CharField(max_length=200)
+    desc=models.TextField(default='')
 
     def __str__(self):
         return self.name
