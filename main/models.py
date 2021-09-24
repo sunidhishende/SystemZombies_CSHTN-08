@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.deletion import CASCADE
+from django.db.models.deletion import CASCADE, PROTECT
 from django.contrib.auth.models import User
 
 
@@ -23,17 +23,9 @@ class External(models.Model):
     yt= models.URLField(blank=True) 
     doc= models.URLField(blank=True) 
 
+class Review(models.Model):
+    user=models.OneToOneField(User, on_delete=PROTECT)
+    review= models.CharField(max_length=500)
+    
     
 
-    
-
-
-
-   
-
-""" class review(models.Model):
-    links =models.ForeignKey(links, on_delete=CASCADE)    
-    review= models.CharField(max_length=200)   
-
-    def __str__(self):
-        return self.review """

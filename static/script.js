@@ -3,8 +3,7 @@ var countdownEl= document.getElementById('countdown');
 var total_time=25;
 var time= total_time * 60;
 var minutes; var seconds;
-let myvar;
-var y=0;
+var myvar=-1;
 
 function task(){
     clearInterval(myvar);
@@ -21,13 +20,20 @@ function breaks(){
 }
 
 function pause(){
-    clearInterval(myvar);
+    if (myvar==-1)
+    {myvar=setInterval(updateCountdown, 1000);}
+    else
+    {clearInterval(myvar);
+        myvar=-1;}
+    
+    
 }
 
 function updateCountdown()
 { 
    minutes= Math.floor(time/60);
    seconds= time % 60;
+   if (seconds<10){seconds= "0"+seconds;}
    countdownEl.innerHTML= `${minutes}:${seconds}`;
    time--;
 }
