@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
-
+<html>
+<body>
 {% block title %}
  Video content
 {% endblock %} 
 
 {% block content %}
+ {%include 'pomodoro.html' %}
 
    <h1> The videos </h1>
    <h2> {{devname}} </h2>
@@ -14,6 +16,7 @@
    {%endfor%}   
    </ul>
 {% endblock %} 
- 
 
+</body>
+</html>
 

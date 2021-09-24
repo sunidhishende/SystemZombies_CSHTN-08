@@ -1,8 +1,18 @@
+{% load static %}
+<html>
+<body>
 <div>
-    <h2>time</h2> 
+    <p id="countdown"> 25:00 </p> 
    <div>
-          <button> task </button>
-          <button> short break </button>
-          <button> long break </button>
+        <p>
+        <div>
+               <button id="task" onclick="task()"> task </button>
+               <button id="break" onclick="breaks()"> break </button>
+               <button id="pause" onclick="pause()"> pause </button>
+         </div>
+         </p>
   </div>
 </div>
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>
