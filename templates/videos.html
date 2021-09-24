@@ -17,16 +17,16 @@
       <div id="div_{{x.id}}">
         
         {% for question in x.questions.all %}
-          <input type="hidden" id="answer_{{question.id}}" value="{{question.correct_option}}">
-          <span id="question_{{question.id}}">{{question.question}}</span><br>
+          <input type="hidden" id="answer_{{question.id}}" value="{{question.correct_option}}">   
+          <span id="question_{{question.id}}">{{question.question}}</span><br>                          
           <input type="radio" name="question_{{question.id}}" value="1" required>
-          <label for="question_{{question.id}}">{{question.option1}}</label><br>
+          <label for="question_{{question.id}}">{{question.option1}}</label><br>            
           <input type="radio" name="question_{{question.id}}" value="2">
-          <label for="question_{{question.id}}">{{question.option2}}</label><br>
+          <label for="question_{{question.id}}">{{question.option2}}</label><br>         
           <input type="radio" name="question_{{question.id}}" value="3">
-          <label for="question_{{question.id}}">{{question.option3}}</label><br>
+          <label for="question_{{question.id}}">{{question.option3}}</label><br>          
           <input type="radio" name="question_{{question.id}}" value="4">
-          <label for="question_{{question.id}}">{{question.option4}}</label><br>
+          <label for="question_{{question.id}}">{{question.option4}}</label><br>                         
 
           <span id="feedback_{{question.id}}" style="color:green"></span><br>
           {% endfor %}
@@ -35,7 +35,9 @@
     </div>
     
 
-   {%endfor%}   
+   {%endfor%}  
+
+   <a href="/external/{{devname.id}}" > External Resources </a>
    </ul>
    <script>
     //let video = document.getElementById('video')
