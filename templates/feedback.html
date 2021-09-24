@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>REVIEW FORM
+</title>
+<style>
+{% comment %} body{background-image:url(image1.jpg);
+     background-size:cover;
+     background-attachment:fixed;
+     } {% endcomment %}
+</style>
+
+
+<center>
+<h1>REVIEW FORM</h1><br><br>
+<body>
+<form method="POST">
+{%csrf_token%}
+<table>
+
+{% comment %} <tr>
+<th>RATING </th>
+<td>1<input type=radio name="answer1" value="A">
+2<input type=radio name="answer1" value="B">
+3<input type=radio name="answer1" value="C">
+4<input type=radio name="answer1" value="D">
+5<input type=radio name="answer1" value="E">
+</td>
+</tr> {% endcomment %}
+
+
+<label for="devnames">Choose course:</label>
+<select name="devnames" id="devnames">
+{%for x in devname.all%}
+<option value="{{x.id}}" name="devname">{{x.name}} </option>
+{% endfor %}
+<tr>
+<th> PLEASE ENTRE YOUR COMMENT BELOW</th>
+<td><input type="text" cols="15" rows="5" name="text"> </input>
+</tr>
+
+     
+<tr>
+<td colspan="2" align="center">
+<button type ="submit"> submit </button>
+
+</td>
+</tr>
+</form>
+</body>
+</html>

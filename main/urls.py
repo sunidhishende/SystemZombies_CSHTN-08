@@ -8,6 +8,7 @@ urlpatterns=[
     path('', views.home, name="home"),
     path('video/<int:id>/',views.video, name="videos"),
     path('external/<int:id>/',views.external, name="external"),
+    path('review',views.review, name="review"),
     #path('sendresources', views.sendresources, name="sendresources"),
 ]
 

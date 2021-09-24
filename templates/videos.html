@@ -12,11 +12,74 @@
    <h2> {{devname}} </h2>
    <ul>
    {%for x in devname.video_set.all%}
-       <video controls autoplay width='50%' height='40%' plays-inline> <source src="{{x.video.url}}" type="video/mp4" > Your browser does not support video </video>
+    <div>
+      <video id="video_{{x.id}}" controls autoplay width='50%' height='40%' plays-inline> <source src="{{x.video.url}}" type="video/mp4" > Your browser does not support video </video>
+      <div id="div_{{x.id}}">
+        
+        {% for question in x.questions.all %}
+          <input type="hidden" id="answer_{{question.id}}" value="{{question.correct_option}}">
+          <span id="question_{{question.id}}">{{question.question}}</span><br>
+          <input type="radio" name="question_{{question.id}}" value="1" required>
+          <label for="question_{{question.id}}">{{question.option1}}</label><br>
+          <input type="radio" name="question_{{question.id}}" value="2">
+          <label for="question_{{question.id}}">{{question.option2}}</label><br>
+          <input type="radio" name="question_{{question.id}}" value="3">
+          <label for="question_{{question.id}}">{{question.option3}}</label><br>
+          <input type="radio" name="question_{{question.id}}" value="4">
+          <label for="question_{{question.id}}">{{question.option4}}</label><br>
+
+          <span id="feedback_{{question.id}}" style="color:green"></span><br>
+          {% endfor %}
+        <button onclick="checkAnswers()">Submit</button>
+      </div>
+    </div>
+    
+
    {%endfor%}   
    </ul>
-{% endblock %} 
-
+   <script>
+    //let video = document.getElementById('video')
+    var videos = document.querySelectorAll('[id^="video_"]')
+    var divs = document.querySelectorAll('[id^="div"]')
+    divs.forEach(div=>{
+      div.style.display="none"
+    })
+    console.log(videos)
+    videos.forEach(video=>{
+      video.onloadedmetadata = function(){
+      console.log(video.duration)
+      var question_pause = function(){
+        if(this.currentTime >= (this.duration)/2){
+          this.pause()
+          this.removeEventListener("timeupdate",question_pause)
+          var id = this.id.split('video_')[1]
+          var div_id = 'div_' + id
+          var div = document.getElementById(div_id)
+          div.style.display="block"
+        }
+      }
+      video.addEventListener("timeupdate",question_pause);
+      }
+    })
+    function checkAnswers(){
+      var radio_buttons = document.querySelectorAll('input[name^="question_"]:checked')
+      radio_buttons.forEach(radio_button=>{
+        var question_id = radio_button.name.split('question_')[1]
+        var answer_input_id = "answer_"+question_id
+        var answer_element = document.getElementById(answer_input_id)
+        var correct_option = answer_element.value
+        var feedback = document.getElementById('feedback_'+question_id)
+        console.log(feedback)
+        if(correct_option==radio_button.value){
+          feedback.innerText = 'Correct'
+        }else{
+          feedback.innerText = 'Wrong'
+          feedback.style.color = "red"
+        }
+      })
+    }
+  </script>
+{% endblock %}
 </body>
 </html>
 
