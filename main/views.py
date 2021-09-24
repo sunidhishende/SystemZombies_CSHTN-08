@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from.models import DevName, User, Review
-from .forms import AddNewResources
 from django.contrib.auth.decorators import login_required
 
 def home(request):
@@ -31,21 +30,3 @@ def review(request):
        review.save()
     return render(request,'feedback.html', {"devname":devname})
 
-
-
-
-
-
-""" def sendresources(response):
-      if response.method=="POST":
-         form=AddNewResources(response.POST)
-         if form.is_valid():
-                n=form.cleaned_data["name"]
-                
-
-
-      else :
-         form= AddNewResources()
-
-      return render(response,"main/sendresources.html",{"form": form })
- """
