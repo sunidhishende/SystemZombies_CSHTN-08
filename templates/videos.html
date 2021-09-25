@@ -5,7 +5,9 @@
  Video content
 {% endblock %} 
 
+
 {% block content %}
+
  <div class="flex col cunt " style="position: fixed; bottom: 0px; right: 10px; padding: 10px; background: #f57676;">
   {%include 'pomodoro.html' %}
  </div>
@@ -33,13 +35,18 @@
            <span id="feedback_{{question.id}}" style="color:green"></span><br>
            {% endfor %}
          <button class="btn" onclick="checkAnswers()">Submit</button>
+         <a href= "/external/{{devname.id}}/"> </a> </div>
+
        </div>
      </div>
+     <div>
      
  
     {%endfor%}   
     </ul>
+    
   </div>
+   
    <script>
     //let video = document.getElementById('video')
     var videos = document.querySelectorAll('[id^="video_"]')
