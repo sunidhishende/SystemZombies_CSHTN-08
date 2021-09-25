@@ -6,37 +6,40 @@
 {% endblock %} 
 
 {% block content %}
- {%include 'pomodoro.html' %}
- <h2 text-align:left> {{devname}} </h2>
-   <ul>
-   {%for x in devname.video_set.all%}
-    <div>
-      <video id="video_{{x.id}}" controls autoplay width='50%' height='40%' plays-inline> <source src="{{x.video.url}}" type="video/mp4" > Your browser does not support video </video>
-      <div id="div_{{x.id}}">
-        
-        {% for question in x.questions.all %}
-          <input type="hidden" id="answer_{{question.id}}" value="{{question.correct_option}}">   
-          <span id="question_{{question.id}}">{{question.question}}</span><br>                          
-          <input type="radio" name="question_{{question.id}}" value="1" required>
-          <label for="question_{{question.id}}">{{question.option1}}</label><br>            
-          <input type="radio" name="question_{{question.id}}" value="2">
-          <label for="question_{{question.id}}">{{question.option2}}</label><br>         
-          <input type="radio" name="question_{{question.id}}" value="3">
-          <label for="question_{{question.id}}">{{question.option3}}</label><br>          
-          <input type="radio" name="question_{{question.id}}" value="4">
-          <label for="question_{{question.id}}">{{question.option4}}</label><br>                         
+ <div class="flex col cunt " style="position: fixed; bottom: 0px; right: 10px; padding: 10px; background: #f57676;">
+  {%include 'pomodoro.html' %}
+ </div>
 
-          <span id="feedback_{{question.id}}" style="color:green"></span><br>
-          {% endfor %}
-        <button onclick="checkAnswers()">Submit</button>
-      </div>
-    </div>
-    
-
-   {%endfor%}  
-
-   <div id= "external"><a  href="/external/{{devname.id}}" > External Resources </a> </div>
-   </ul>
+  <div class="cunt">
+    <h2 id="title"> {{devname}} </h2>
+    <ul>
+    {%for x in devname.video_set.all%}
+     <div class="vid-n-quiz">
+       <video id="video_{{x.id}}" controls autoplay width='50%' height='40%' plays-inline> <source src="{{x.video.url}}" type="video/mp4" > Your browser does not support video </video>
+       <div id="div_{{x.id}}">
+         
+         {% for question in x.questions.all %}
+           <input type="hidden" id="answer_{{question.id}}" value="{{question.correct_option}}">
+           <span id="question_{{question.id}}">{{question.question}}</span><br>
+           <input type="radio" name="question_{{question.id}}" value="1" required>
+           <label for="question_{{question.id}}">{{question.option1}}</label><br>
+           <input type="radio" name="question_{{question.id}}" value="2">
+           <label for="question_{{question.id}}">{{question.option2}}</label><br>
+           <input type="radio" name="question_{{question.id}}" value="3">
+           <label for="question_{{question.id}}">{{question.option3}}</label><br>
+           <input type="radio" name="question_{{question.id}}" value="4">
+           <label for="question_{{question.id}}">{{question.option4}}</label><br>
+ 
+           <span id="feedback_{{question.id}}" style="color:green"></span><br>
+           {% endfor %}
+         <button class="btn" onclick="checkAnswers()">Submit</button>
+       </div>
+     </div>
+     
+ 
+    {%endfor%}   
+    </ul>
+  </div>
    <script>
     //let video = document.getElementById('video')
     var videos = document.querySelectorAll('[id^="video_"]')
@@ -82,4 +85,5 @@
 {% endblock %}
 </body>
 </html>
+
 

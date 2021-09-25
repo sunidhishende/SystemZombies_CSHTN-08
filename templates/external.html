@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+<style>
+ body {
+        background-image: url('static/bg.jpg');
+        background-size: 100vw;
+      }
+</style>
 <body>
 
 {% block title %}
@@ -7,31 +13,52 @@
 
 {% block content %}
 
-   <h1> External Resources </h1>
-   <h2> {{devname}} </h2>
+   <h2 id="title"> External Resources </h2>
+   <h3 id="title"> {{devname}} </h3>
 
-   <h3> Books </h3>
-   <ul>
+   <div class = "row">
+   <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><a href= "/video/{{x.id}}/" class="card-title">Books</a></h5>
+        <p class="card-text"> <ul>
    {%for x in devname.external_set.all%}
       <li> <a href="{{x.book}}"> {{x.book}} </a> </li>
    {%endfor%}   
-   </ul>
-
-   <h3> Yt Links </h3>
-   <ul>
-   {%for x in devname.external_set.all%}
-      <li> <a href="{{x.yt}}"> {{x.yt}} </a> </li>
-   {%endfor%}   
-   </ul>
-
-   <h3> Documentation </h3>
-
-   <ul>
+   </ul><p>
+      
+      </div>
+    </div>
+  </div>
+ 
+   <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><a href= "/video/{{x.id}}/" class="card-title">Documentation</a></h5>
+        <p class="card-text"> <ul>
    {%for x in devname.external_set.all%}
       <li> <a href="{{x.doc}}"> {{x.doc}} </a> </li>
    {%endfor%}   
-   </ul>
+   </ul><p>
+      
+      </div>
+    </div>
+  </div>
+
+   <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><a href= "/video/{{x.id}}/" class="card-title">Yt links</a></h5>
+        <p class="card-text"> <ul>
+   {%for x in devname.external_set.all%}
+      <li> <a href="{{x.yt}}"> {{x.yt}} </a> </li>
+   {%endfor%}   
+   </ul><p>
+      
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
 
 
-{% endblock %}
-</body>
