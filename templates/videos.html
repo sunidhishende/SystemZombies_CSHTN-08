@@ -7,9 +7,7 @@
 
 {% block content %}
  {%include 'pomodoro.html' %}
-
-   <h1> The videos </h1>
-   <h2> {{devname}} </h2>
+ <h2 text-align:left> {{devname}} </h2>
    <ul>
    {%for x in devname.video_set.all%}
     <div>
@@ -37,7 +35,7 @@
 
    {%endfor%}  
 
-   <a href="/external/{{devname.id}}" > External Resources </a>
+   <div id= "external"><button  href="/external/{{devname.id}}" > External Resources </button> </div>
    </ul>
    <script>
     //let video = document.getElementById('video')

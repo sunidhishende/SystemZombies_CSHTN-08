@@ -1,0 +1,33 @@
+
+.card{
+    margin: 10px 10px;
+    padding: 1% 1%;
+    border-radius: 20px;
+    width: 475px;
+    background-color:#3dd0d79e;
+    
+}
+#title{
+    color: rgba(18, 18, 133, 1);
+    text-align:center;
+    padding: 25px 10px;
+}
+.btn-primary{
+    background-color: aliceblue;
+    color: black;
+    font-size: large;
+}
+#starttext{
+        color: #000d0e9e;
+        text-align: center;
+        text-justify: auto;
+        padding: 10px 10px;
+        font-size: large;
+        font-family:Arial, Helvetica, sans-serif;
+        font-weight: bold;
+
+
+
+
+
+}

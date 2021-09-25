@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 <html>
 <head>
-<title>REVIEW FORM
+<title>Review
 </title> </head>
 {% block content %}
 <center>
-<h1>REVIEW FORM</h1><br><br>
+<h2 id="title"> Review </h2><br><br>
 <body>
 <form method="POST">
 {%csrf_token%}
 <table>
-<label for="devnames">Choose course:</label>
+<label for="devnames"><th>Choose course:<th></label>
 <select name="devnames" id="devnames">
 {%for x in devname.all%}
 <option value="{{x.id}}" name="devname">{{x.name}} </option>
 {% endfor %}
 <tr>
-<th> PLEASE ENTRE YOUR COMMENT BELOW</th>
+<th> Please enter your feedback</th>
 <td><input type="text" cols="15" rows="5" name="text"> </input>
 </tr>
 
@@ -31,3 +31,5 @@
 {%endblock%}
 </body>
 </html>
+
+<html>
