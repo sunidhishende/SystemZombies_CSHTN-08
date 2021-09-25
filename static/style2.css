@@ -1,0 +1,70 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col{
+    flex-direction: column;
+}
+.cunt{
+    margin: 50px auto 20px auto;
+    padding: 50px;
+    background: #0082e6;
+    border-radius: 8px;
+    width: max-content;
+}
+.cunt > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cunt > form > *{
+    color: white;
+    padding: 4px;
+    margin: 10px;
+}
+.cunt > form > input, .cunt > form >p >input{
+    width: 75%;
+    color: black;
+    outline: none;
+    border-radius: 8px;
+    /* text-decoration: none; */
+    border: none;
+    padding: 8px;
+}
+.btn, .cunt > form > button{
+        /* box-shadow: 0 0 5px 0; */
+        border: none;
+        width: 100px;
+        color: #000;
+        border-radius: 8px;
+        padding: 8px;
+        transition: 50;
+}
+.btn:hover, .cunt > form > button:hover{
+    box-shadow: 0 0 5px 0;
+}
+.cunt >form > p> a{
+    color: #000;
+    cursor: pointer;
+}
+.cunt >form > p> a:hover, .cunt >form > p> a:active{
+    background: none;
+    color: #000;
+    cursor: pointer;
+}
+.cunt >form >p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vid-n-quiz> video{
+    width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+.vid-n-quiz > div{
+    color: rgb(255, 239, 239);
+    padding: 20px;
+}

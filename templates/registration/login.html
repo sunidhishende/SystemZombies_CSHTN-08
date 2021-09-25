@@ -1,15 +1,19 @@
 {%extends 'base.html'%}
-<body>
+{%load static%}
+<link rel="stylesheet" href= "{%static 'style2.css'%}">
+
 {%block title%}
 Login Here
 {%endblock%}
 
-{%block content%}
-<form method="POST">
-{%csrf_token%}
-{{form}}
-<button type="submit">Login </button>
-<p> If you don't have an account, Sign up <a href="/register"> here </a></p>
-</form>
+
+    {%block content%}
+<div class="flex col cunt">
+    <form method="POST">
+        {%csrf_token%}
+        {{form}}
+        <button class="" type="submit">Login </button>
+        <p> If you don't have an account, Sign up <a href="/register"> here </a></p>
+        </form>
+</div>
 {%endblock%}
-</body>

@@ -1,14 +1,14 @@
 {%extends "base.html"%}
-<body>
 
 {%block title%} Create an account  {%endblock%}
 
 {%block content%}
-<form method="POST">
-   {% csrf_token %}
-   {{form.as_p}}
-   <button type="submit"> Register </button>
-</form>
+<div class="flex col cunt">
+   <form method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button class="" type="submit"> Register </button>
+   </form>
+</div>
 
 {%endblock%}
-</body>
